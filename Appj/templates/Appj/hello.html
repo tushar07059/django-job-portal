@@ -1,0 +1,15 @@
+{%if is_authenticated%}
+<h1>Welcome {{name}} </h1>
+{% else %}
+<h1>Hello {{name}} you are not authenticated to the system </h1>
+{% endif %}
+<h1>Age:{{age}}</h1>
+<h2>{{ first_list}}</h2>
+<h2>{{temp_object.x}}</h2>
+{% for l in first_list %}
+  <p>{{l}}</p>
+ {% endfor %}
+
+<h3> Filters </h3>
+{{first_list|length_is :"2"}}
+

@@ -1,0 +1,84 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href= "{% static 'Appj/style.css' %}"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <title>{% block title %}Job's Website{% endblock title %}</title>
+  </head>
+  <body>
+    <header >
+      <nav>
+        <div class="container">
+          <div class="logo">
+            <img src="{% static 'Appj/logo.svg' %}" alt="" />
+          </div>
+          <div class="links">
+            <a href= "{% url 'jobs_home' %}">Home</a>
+          </div>
+          <span class="material-icons menu" onclick="menu()"> menu </span>
+        </div>
+      </nav>
+    </header>
+
+    {% block content %}
+    
+    {% endblock content %}
+
+
+  <footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-column">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">My Story</a></li>
+       <li><a href='#'>Resume</a></li>
+        <li><a href="#">Career Goals</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Projects</h3>
+      <ul>
+        <li><a href="#">Web Apps</a></li>
+        <li><a href="#">APIs</a></li>
+        <li><a href="#">Open Source</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Skills</h3>
+      <ul>
+        <li>React / JavaScript</li>
+        <li>Python / Django</li>
+        <li>SQL / Git / APIs</li>
+        <li>HTML / CSS</li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Connect</h3>
+      <ul>
+        <li><a href="mailto:tushar24bhandari@gmail.com">Email me </a></li>
+        <li><a href="https://github.com/tushar07059">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/tushar-bhandari0705/">LinkedIn</a></li>
+        <li><a href="#">Contact Form</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </div>
+  </footer>
+
+  </body>
+  </html>

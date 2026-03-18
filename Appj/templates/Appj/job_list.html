@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}FlixCareers | Home{% endblock title %}
+    {% block content %}
+     <!-- job post lists -->
+     
+    <form class="search-bar" method="get">
+      <input
+        type="text"
+        name="query"
+        placeholder="Search job titles or skills..."
+        value="{{ query|default:'' }}"
+        required
+      />
+      <button type="submit">Search</button>
+    </form> 
+  {% comment %} </div>
+</header>
+{% endcomment %}
+
+
+{% comment %} <section class="job-results">
+  {% if query %}
+    <h2>Search Results for "{{ query }}"</h2>
+  {% else %}
+    <h2>All Jobs</h2>
+  {% endif %}
+
+  {% if jobs %}
+    <ul>
+      {% for job in jobs %}
+        <li>{{ job.title }} at {{ job.company }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No jobs found.</p>
+  {% endif %}  {% endcomment %}
+{% comment %} </section> {% endcomment %}
+    <section>
+      <div class="container">
+        <!-- job post -->
+        {% for job in jobs %} 
+        <div class="post">
+          <!-- title and des -->
+          <div class="job-info">
+            <h1 class="job-title">{{job.title}}</h1>
+            <div class="job-des">
+              <div class="location item">
+                <span class="material-icons"> place </span>
+                <p>{{job.location.city}}</p>
+              </div>
+              <div class="budget item">
+                <span class="material-icons"> attach_money </span>
+                <p>{{job.salary}}</p>
+              </div>
+              <div class="time item">
+                <span class="material-icons"> schedule </span>
+                <p>{{job.type}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="apply">
+              <a href="{% url 'jobs_detail' forloop.counter %}">View Job</a>
+            </button>
+          </div>
+        </div>
+        <!-- job post end-->
+        {% endfor %}
+      </div>
+    </section>
+    {% endblock content %}
+
+
